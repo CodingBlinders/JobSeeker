@@ -66,6 +66,7 @@ module.exports = {
             const job = await Job.findOne({ _id: utils.mongoID(params.id) }).populate('employer', 'email image profile.companyName');
 
 
+
             if (!job) {
                 return res.status(404).json({
                     status: 'failed',
