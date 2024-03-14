@@ -63,7 +63,8 @@ module.exports = {
             const validation = validate(schemaValidation.get, params);
             if (validation?.error) return res.status(400).json(validation.error);
 
-            const job = await Job.findOne({ _id: utils.mongoID(params.id) }).populate('employer', 'email image profile.name');
+            const job = await Job.findOne({ _id: utils.mongoID(params.id) }).populate('employer', 'email image profile.companyName');
+
 
             if (!job) {
                 return res.status(404).json({
