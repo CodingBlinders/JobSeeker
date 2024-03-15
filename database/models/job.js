@@ -3,6 +3,11 @@ const Schema = mongoose.Schema;
 
 const jobSchema = new Schema({
     title: { type: String, required: true },
+    Industry: { type: String, required: true },
+    Category: { type: String, required: true },
+    JobPosition: { type: String, required: true },
+    JobType: { type: String, required: true },
+    TypeOfWorkspace: { type: String, required: true },
     description: { type: String, required: true },
     requirements: [String],
     responsibilities: [String],

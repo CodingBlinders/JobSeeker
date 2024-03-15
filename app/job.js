@@ -36,7 +36,12 @@ module.exports = {
                 responsibilities: body.responsibilities,
                 location: body.location,
                 salaryRange: body.salaryRange,
-                employer: req.tokenData.user_id
+                employer: req.tokenData.user_id,
+                industry: body.industry,
+                category: body.category,
+                jobPosition: body.jobPosition,
+                jobType: body.jobType,
+                typeOfWorkspace: body.typeOfWorkspace
             });
 
             await job.save();
@@ -157,6 +162,9 @@ module.exports = {
 
             const jobs = await Job.find({
                 title: { $regex: body.search, $options: 'i' },
+                industry: { $regex: body.search, $options: 'i' },
+                category: { $regex: body.search, $options: 'i' },
+                jobPosition: { $regex: body.search, $options: 'i' },
                 description: { $regex: body.search, $options: 'i' },
                 requirements: { $regex: body.search, $options: 'i' },
                 responsibilities: { $regex: body.search, $options: 'i' },
