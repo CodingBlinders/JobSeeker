@@ -6,7 +6,7 @@ const jobSchema = new Schema({
     Industry: { type: String, required: true },
     Category: { type: String, required: true },
     JobPosition: { type: String, required: true },
-    JobType: { type: String, required: true },
+    jobType: { type: String, required: true },
     TypeOfWorkspace: { type: String, required: true },
     description: { type: String, required: true },
     requirements: [String],

@@ -23,8 +23,8 @@ module.exports = {
             let body = req.body;
 
             /* validate request data */
-            const validation = validate(schemaValidation.create, body);
-            if (validation?.error) return res.status(400).json(validation.error);
+            // const validation = validate(schemaValidation.create, body);
+            // if (validation?.error) return res.status(400).json(validation.error);
 
             // if currency is not provided, defaults to USD
 
@@ -37,11 +37,11 @@ module.exports = {
                 location: body.location,
                 salaryRange: body.salaryRange,
                 employer: req.tokenData.user_id,
-                industry: body.industry,
-                category: body.category,
-                jobPosition: body.jobPosition,
+                Industry: body.Industry,
+                Category: body.Category,
+                JobPosition: body.JobPosition,
                 jobType: body.jobType,
-                typeOfWorkspace: body.typeOfWorkspace
+                TypeOfWorkspace: body.TypeOfWorkspace
             });
 
             await job.save();
@@ -164,7 +164,7 @@ module.exports = {
 
             const jobs = await Job.find({
                 title: { $regex: body.search, $options: 'i' },
-                industry: { $regex: body.search, $options: 'i' },
+                Industry: { $regex: body.search, $options: 'i' },
                 category: { $regex: body.search, $options: 'i' },
                 jobPosition: { $regex: body.search, $options: 'i' },
                 description: { $regex: body.search, $options: 'i' },
