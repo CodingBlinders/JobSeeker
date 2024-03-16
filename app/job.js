@@ -318,5 +318,35 @@ module.exports = {
                 message: error.message
             });
         }
+    },
+
+    getByEmployer: async (req, res) => {
+        console.log('getByEmployer');
+        try {
+            const employerId = req.params.id; // Correctly accessing the parameter 'id'
+            console.log('employerId', employerId);
+    
+            // Find all jobs associated with the specified employer ID
+            const jobs = await Job.find({ employer: employerId });
+    
+            if (!jobs || jobs.length === 0) {
+                return res.status(404).json({
+                    status: 'failed',
+                    message: 'No jobs found for the specified employer ID'
+                });
+            }
+    
+            return res.status(200).json({
+                status: 'success',
+                data: jobs
+            });
+    
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({
+                status: 'failed',
+                message: error.message
+            });
+        }
     }
 };
