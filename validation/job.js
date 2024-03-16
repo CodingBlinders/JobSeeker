@@ -3,6 +3,12 @@ const Joi = require('joi');
 module.exports = {
     create: Joi.object().keys({
         title: Joi.string().required(),
+        category: Joi.string().required(),
+        jobPosition: Joi.string().required(),
+        jobType: Joi.string().required(),
+        workspaceType: Joi.string().required(),
+        aboutCompany: Joi.string().required(),
+        industry: Joi.string().required(),
         description: Joi.string().required(),
         requirements: Joi.array().items(Joi.string()).required(),
         responsibilities: Joi.array().items(Joi.string()).required(),
@@ -27,6 +33,12 @@ module.exports = {
     }),
     // filter search
     filter: Joi.object().keys({
+        category: Joi.string().allow('', null),
+        jobPosition: Joi.string().allow('', null),
+        jobType: Joi.string().allow('', null),
+        workspaceType: Joi.string().allow('', null),
+        aboutCompany: Joi.string().allow('', null),
+        industry: Joi.string().allow('', null),
         title: Joi.string().allow('', null),
         location: Joi.string().allow('', null),
         salaryRange: Joi.object().keys({
@@ -41,6 +53,12 @@ module.exports = {
     }),
     update: Joi.object().keys({
         title: Joi.string().required(),
+        category: Joi.string().required(),
+        jobPosition: Joi.string().required(),
+        jobType: Joi.string().required(),
+        workspaceType: Joi.string().required(),
+        aboutCompany: Joi.string().required(),
+        industry: Joi.string().required(),
         description: Joi.string().required(),
         requirements: Joi.array().items(Joi.string()).required(),
         responsibilities: Joi.array().items(Joi.string()).required(),
